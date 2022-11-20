@@ -48,7 +48,8 @@ const listsTodo = lists.map((list)=>{
   }
   function refreshPage(){ 
     window.location.reload(false);
-   }
+    // this is test
+   } 
   function delFunc(id){
     var deleteTofo = lists.filter(lists =>lists.id !== id);
     console.log(deleteTofo);
