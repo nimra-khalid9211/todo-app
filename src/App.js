@@ -60,7 +60,6 @@ const listsTodo = lists.map((list)=>{
     // console.log(updateTofo);
     setValue(updateTofo.todo)
     setToggle(false);
-
     setId(id);
     console.log(getid)
   }

@@ -5,7 +5,7 @@ export default function Todo(props){
         <div className="abc">
         <form onSubmit={(e)=>{e.preventDefault();props.onChange()}}>
             <input type="text" value={props.inputValue} className="note-text white-box" onChange={props.value}/>
-            {
+            { 
                 props.toggle ? <button type="submit" className="add-btn btn" ><i className="fa-solid fa-cart-plus"></i></button> :
                 <button type="submit" className="add-btn btn" ><i className="fa-solid fa-pen-to-square"></i></button>
             }
