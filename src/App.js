@@ -4,10 +4,21 @@ import './App.css';
 
 export default function App() {
   
-  const [lists ,setList] = useState([]);
+  const [lists ,setList] = useState(localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list'))  : []);
   const [value , setValue] = useState('');
   const [toggle , setToggle] = useState('true');
-  const [getid,setId]= useState(null)
+  const [getid, setId]= useState(null)
+
+  // const localData = ()=>{
+  //   const items = JSON.parse(localStorage.getItem('lists'));
+  //   if(items){
+  //     return JSON.parse(localStorage.getItem('lists'))
+  //   }else{
+  //     return[]
+  //   }
+  // }
+  
+  
   
 const listsTodo = lists.map((list)=>{
   return(
@@ -20,6 +31,10 @@ const listsTodo = lists.map((list)=>{
                     </div>
   )
 })
+// useEffect(()=>{
+ 
+// },[lists])
+
   function addItems(){
     
     if(value === ''){
@@ -42,17 +57,18 @@ const listsTodo = lists.map((list)=>{
       setList([...lists,todo]);
   
       setValue('');
-      console.log(lists)
+      //console.log(lists)
     }
-
+    
   }
+  localStorage.setItem('list',JSON.stringify(lists))
   function refreshPage(){ 
     window.location.reload(false);
     // this is test
    } 
   function delFunc(id){
     var deleteTofo = lists.filter(lists =>lists.id !== id);
-    console.log(deleteTofo);
+    //console.log(deleteTofo);
     setList(deleteTofo);
   }
   function updateFunc(id){
@@ -61,10 +77,10 @@ const listsTodo = lists.map((list)=>{
     setValue(updateTofo.todo)
     setToggle(false);
     setId(id);
-    console.log(getid)
+    //console.log(getid)
   }
   function getValue(e){
-    console.log(e.target.value )
+    //console.log(e.target.value )
     setValue(e.target.value)
   }
   return (
